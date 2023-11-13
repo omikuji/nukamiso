@@ -1,11 +1,11 @@
 #!/usr/bin/bash
 
-chmod 777 /video/$2
-mkdir -p /video/$2
-mkdir -p /video/$2
+chmod 777 $2
+mkdir -p $2
+mkdir -p $2
 
 ffmpeg \
-  -i /video/$1 \
+  -i $1 \
   -vcodec libx264 \
   -movflags faststart \
   -vprofile baseline \
@@ -21,5 +21,5 @@ ffmpeg \
   -f segment \
   -segment_format mpegts \
   -segment_time 3 \
-  -segment_list /video/$2/playlist.m3u8 /video/$2/v%03d.ts
+  -segment_list $2/playlist.m3u8 $2/v%03d.ts
 
